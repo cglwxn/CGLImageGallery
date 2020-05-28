@@ -209,9 +209,6 @@
             self.imageView.hidden = YES;
             self.originContentVFrame = self.contentV.frame;
             self.originImgVFrame = self.imageView.frame;
-            
-            
-            
             NSLog(@"originContentVFrame>>%@",NSStringFromCGRect(self.originContentVFrame));
         }
             

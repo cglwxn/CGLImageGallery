@@ -110,8 +110,8 @@
             filePath = "&#x4ea7;&#x54c1;&#x5546;&#x57ce;&#x67b6;&#x6784;&#x91cd;&#x6784;/CGLImageGalleryVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "-panAction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "&#x4ea7;&#x54c1;&#x5546;&#x57ce;&#x67b6;&#x6784;&#x91cd;&#x6784;/CGLImageGalleryVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
             landmarkName = "-panAction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "&#x4ea7;&#x54c1;&#x5546;&#x57ce;&#x67b6;&#x6784;&#x91cd;&#x6784;/CGLImageGalleryVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "528"
-            endingLineNumber = "528"
+            startingLineNumber = "525"
+            endingLineNumber = "525"
             landmarkName = "-animateTransition:"
             landmarkType = "7">
          </BreakpointContent>
@@ -270,8 +270,8 @@
             filePath = "&#x4ea7;&#x54c1;&#x5546;&#x57ce;&#x67b6;&#x6784;&#x91cd;&#x6784;/CGLImageGalleryVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "466"
-            endingLineNumber = "466"
+            startingLineNumber = "463"
+            endingLineNumber = "463"
             landmarkName = "-animateTransition:"
             landmarkType = "7">
          </BreakpointContent>
@@ -286,8 +286,8 @@
             filePath = "&#x4ea7;&#x54c1;&#x5546;&#x57ce;&#x67b6;&#x6784;&#x91cd;&#x6784;/CGLImageGalleryVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "478"
-            endingLineNumber = "478"
+            startingLineNumber = "475"
+            endingLineNumber = "475"
             landmarkName = "-animateTransition:"
             landmarkType = "7">
          </BreakpointContent>
@@ -302,8 +302,8 @@
             filePath = "&#x4ea7;&#x54c1;&#x5546;&#x57ce;&#x67b6;&#x6784;&#x91cd;&#x6784;/CGLImageGalleryVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "376"
-            endingLineNumber = "376"
+            startingLineNumber = "373"
+            endingLineNumber = "373"
             landmarkName = "-animateTransition:"
             landmarkType = "7">
          </BreakpointContent>
@@ -318,8 +318,8 @@
             filePath = "&#x4ea7;&#x54c1;&#x5546;&#x57ce;&#x67b6;&#x6784;&#x91cd;&#x6784;/CGLImageGalleryVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "379"
-            endingLineNumber = "379"
+            startingLineNumber = "376"
+            endingLineNumber = "376"
             landmarkName = "-animateTransition:"
             landmarkType = "7">
          </BreakpointContent>
@@ -382,8 +382,8 @@
             filePath = "&#x4ea7;&#x54c1;&#x5546;&#x57ce;&#x67b6;&#x6784;&#x91cd;&#x6784;/CGLImageGalleryVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "-panAction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -398,8 +398,8 @@
             filePath = "&#x4ea7;&#x54c1;&#x5546;&#x57ce;&#x67b6;&#x6784;&#x91cd;&#x6784;/CGLImageGalleryVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "630"
-            endingLineNumber = "630"
+            startingLineNumber = "627"
+            endingLineNumber = "627"
             landmarkName = "-contentV"
             landmarkType = "7">
          </BreakpointContent>
