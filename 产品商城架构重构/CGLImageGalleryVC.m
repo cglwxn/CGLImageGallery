@@ -90,7 +90,6 @@
         CGRect newRect = [self getRectScroll:scroll WithScale:scale andCenter:touchPoint];
         [scroll zoomToRect:newRect animated:YES];
         UIView *contentV = [self.currentScroll viewWithTag:1999];
-        CGRect contentVF = contentV.frame;
 
         if (originF.size.height < SCREEN_HEIGHT && originF.size.height >= SCREEN_HEIGHT/3) {
             self.currentScroll.contentSize = CGSizeMake(contentV.frame.size.width, contentV.frame.size.height-SCREEN_HEIGHT+originF.size.height);
@@ -99,7 +98,8 @@
 //            self.currentScroll.contentSize = CGSizeMake(contentV.frame.size.width, contentV.frame.size.height-SCREEN_HEIGHT+originF.size.height);
 //            self.currentScroll.contentInset = UIEdgeInsetsMake(-contentV.frame.origin.y, 0, 0, 0);
             
-            self.currentScroll.contentSize = CGSizeMake(contentV.frame.size.width, SCREEN_HEIGHT+contentV.frame.origin.y);
+            //contentSize的高度contentV.frame.origin.y+1中的+1是为了,防止放大后,滑动会开始缩小且dismiss.目前效果不好,暂时禁止放大后滑动dismiss
+            self.currentScroll.contentSize = CGSizeMake(contentV.frame.size.width, SCREEN_HEIGHT+contentV.frame.origin.y+1);
             self.currentScroll.contentInset = UIEdgeInsetsMake(-contentV.frame.origin.y, 0, 0, 0);
         }
     }
@@ -156,7 +156,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     UIView *contentV = [self.currentScroll viewWithTag:1999];
-    NSLog(@">>>%f>>>%@>>>%@>>%@",scrollView.contentOffset.y,NSStringFromCGSize(scrollView.contentSize),NSStringFromCGRect(contentV.frame),NSStringFromCGRect(self.imageView.frame));
+    NSLog(@"contentOffset:%f contentSize%@>>>contentV%@>>imageView:%@-%@",scrollView.contentOffset.y,NSStringFromCGSize(scrollView.contentSize),NSStringFromCGRect(contentV.frame),NSStringFromCGRect(self.imageView.frame),NSStringFromCGAffineTransform(self.imageView.transform));
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
@@ -201,18 +201,21 @@
                     }
                 }
             }
-            NSLog(@"pan.state>>%ld>>%@",pan.state,NSStringFromCGRect(self.imageView.frame));
             self.originFrame = self.imageView.frame;
         }
             
             break;
         case UIGestureRecognizerStateChanged://2
             if (self.allowPan) {
-                NSLog(@"pan.state>>%ld>>%@",pan.state,NSStringFromCGRect(self.imageView.frame));
+//                NSLog(@"pan.state>>%ld>>%@",pan.state,NSStringFromCGRect(self.imageView.frame));
                 if (point.y > 0 && point.y < SCREEN_HEIGHT) {
+                    NSLog(@"前--imageView>>%@",NSStringFromCGRect(self.imageView.frame));
                     self.imageView.frame = CGRectMake(self.originFrame.origin.x+point.x, self.originFrame.origin.y+point.y, self.originFrame.size.width*(1-(point.y)/SCREEN_HEIGHT), self.originFrame.size.height*(1-(point.y)/SCREEN_HEIGHT));
                     self.presentationVC.dimmingView.alpha = 1-(point.y)/SCREEN_HEIGHT;
 //                    self.view.alpha = 1-(point.y)/SCREEN_HEIGHT;
+                    
+                    NSLog(@"后--imageView>>%@",NSStringFromCGRect(self.imageView.frame));
+
                 }else{
                     self.imageView.frame = CGRectMake(self.originFrame.origin.x+point.x, self.originFrame.origin.y+point.y, self.originFrame.size.width, self.originFrame.size.height);
 //                    self.view.backgroundColor = [UIColor blackColor];
@@ -220,7 +223,7 @@
             }
            break;
         case UIGestureRecognizerStateEnded://3
-            NSLog(@"pan.state>>%ld>>%@",pan.state,NSStringFromCGRect(self.imageView.frame));
+//            NSLog(@"pan.state>>%ld>>%@",pan.state,NSStringFromCGRect(self.imageView.frame));
         {
             if (self.allowPan) {
                 if (point.y>0) {
@@ -420,7 +423,7 @@
 //            toView.alpha = 1;
         } completion:^(BOOL finished) {
 //            self.view.alpha = 1;
-            NSLog(@"present完成....");
+//            NSLog(@"present完成....");
 
             for (int i = 0; i < _images.count; i ++) {
                 UIScrollView *scroll = [self.horizentalScrollView viewWithTag:1000+i];
@@ -436,7 +439,7 @@
                     orignContentF.origin.y = 0;
                     orignContentF.size.height = hei;
                     
-                    NSLog(@"hei>>%f>>frame:%@",hei,NSStringFromCGRect(orignContentF));
+//                    NSLog(@"hei>>%f>>frame:%@",hei,NSStringFromCGRect(orignContentF));
 
                     contentV.frame = orignContentF;
                     
@@ -448,7 +451,7 @@
                     orignContentF.origin.y = (scroll.frame.size.height-hei)/2;
                     orignContentF.size.height = SCREEN_HEIGHT -(scroll.center.y-hei/2);
                     
-                    NSLog(@"hei>>%f>>frame:%@",hei,NSStringFromCGRect(orignContentF));
+//                    NSLog(@"hei>>%f>>frame:%@",hei,NSStringFromCGRect(orignContentF));
 
                     contentV.frame = orignContentF;
                     
@@ -470,7 +473,7 @@
         }];
     }else{
         //dismiss
-        NSLog(@">>>>>>>dismiss>>>>>>>>>>");
+//        NSLog(@">>>>>>>dismiss>>>>>>>>>>");
         //获取当前idx
         CGFloat idx = self.horizentalScrollView.contentOffset.x/SCREEN_WIDTH;
         UIView *containerView = [transitionContext containerView];
@@ -516,7 +519,7 @@
             imageView.frame = resultF;
             [self.originContentView addSubview:imageView];
             
-            NSLog(@"dismiss完成....");
+//            NSLog(@"dismiss完成....");
             [transitionContext completeTransition:YES];
         }];
     }
