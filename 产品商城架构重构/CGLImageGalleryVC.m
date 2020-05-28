@@ -22,15 +22,12 @@
 @property (nonatomic, strong) id <UIViewControllerContextTransitioning> transitionContext;
 @property (nonatomic, assign) BOOL isTap;
 
-@property (nonatomic, assign) CGRect originContentVFrame;
-@property (nonatomic, assign) CGRect originImgVFrame;
-
+@property (nonatomic, assign) CGRect originFrame;
 @property (nonatomic, strong) UIView *originContentView;
 @property (nonatomic, assign) BOOL allowPan;
 
 @property (nonatomic, assign) NSInteger idx;
 @property (nonatomic, strong) UIScrollView *currentScroll;
-@property (nonatomic, strong) UIView *contentV;
 
 @property (nonatomic, strong) PresentationVC *presentationVC;
 
@@ -204,40 +201,26 @@
                     }
                 }
             }
-//            NSLog(@"pan.state>>%ld>>%@",pan.state,NSStringFromCGRect(self.imageView.frame));
-//            self.originFrame = self.imageView.frame;
-            self.imageView.hidden = YES;
-            self.originContentVFrame = self.contentV.frame;
-            self.originImgVFrame = self.imageView.frame;
-            NSLog(@"originContentVFrame>>%@",NSStringFromCGRect(self.originContentVFrame));
+            NSLog(@"pan.state>>%ld>>%@",pan.state,NSStringFromCGRect(self.imageView.frame));
+            self.originFrame = self.imageView.frame;
         }
             
             break;
         case UIGestureRecognizerStateChanged://2
             if (self.allowPan) {
-//                NSLog(@"pan.state>>%ld>>%@",pan.state,NSStringFromCGRect(self.imageView.frame));
+                NSLog(@"pan.state>>%ld>>%@",pan.state,NSStringFromCGRect(self.imageView.frame));
                 if (point.y > 0 && point.y < SCREEN_HEIGHT) {
-                    
-                    self.imageView.frame = CGRectMake(self.originImgVFrame.origin.x, self.originImgVFrame.origin.y, self.originImgVFrame.size.width*(1-(point.y)/SCREEN_HEIGHT), self.self.originImgVFrame.size.height*(1-(point.y)/SCREEN_HEIGHT));
-                    
-                    self.contentV.frame = CGRectMake(self.originContentVFrame.origin.x+point.x, self.originContentVFrame.origin.y+point.y, self.originContentVFrame.size.width*(1-(point.y)/SCREEN_HEIGHT), self.originContentVFrame.size.height*(1-(point.y)/SCREEN_HEIGHT));
-                    NSLog(@"contentV>>%@",NSStringFromCGRect(self.contentV.frame));
-
-                    self.presentationVC.dimmingView.alpha = 0;
-                    
-                    
-//                    self.presentationVC.dimmingView.alpha = 1-(point.y)/SCREEN_HEIGHT;
+                    self.imageView.frame = CGRectMake(self.originFrame.origin.x+point.x, self.originFrame.origin.y+point.y, self.originFrame.size.width*(1-(point.y)/SCREEN_HEIGHT), self.originFrame.size.height*(1-(point.y)/SCREEN_HEIGHT));
+                    self.presentationVC.dimmingView.alpha = 1-(point.y)/SCREEN_HEIGHT;
 //                    self.view.alpha = 1-(point.y)/SCREEN_HEIGHT;
                 }else{
-                    self.imageView.frame = CGRectMake(self.originImgVFrame.origin.x, self.originImgVFrame.origin.y, self.originImgVFrame.size.width, self.self.originImgVFrame.size.height);
-                    
-                    self.imageView.frame = CGRectMake(self.originContentVFrame.origin.x+point.x, self.originContentVFrame.origin.y+point.y, self.originContentVFrame.size.width, self.originContentVFrame.size.height);
+                    self.imageView.frame = CGRectMake(self.originFrame.origin.x+point.x, self.originFrame.origin.y+point.y, self.originFrame.size.width, self.originFrame.size.height);
 //                    self.view.backgroundColor = [UIColor blackColor];
                 }
             }
            break;
         case UIGestureRecognizerStateEnded://3
-//            NSLog(@"pan.state>>%ld>>%@",pan.state,NSStringFromCGRect(self.imageView.frame));
+            NSLog(@"pan.state>>%ld>>%@",pan.state,NSStringFromCGRect(self.imageView.frame));
         {
             if (self.allowPan) {
                 if (point.y>0) {
@@ -246,8 +229,7 @@
                     }];
                 }else{
                     [UIView animateWithDuration:0.3 animations:^{
-                        self.imageView.frame = self.originImgVFrame;
-                        self.contentV.frame = self.originContentVFrame;
+                        self.imageView.frame = self.originFrame;
 //                        self.view.backgroundColor = [UIColor blackColor];
                     }];
                     [self addImageView];
@@ -258,8 +240,7 @@
         case UIGestureRecognizerStateCancelled://4
         {
             [UIView animateWithDuration:0.3 animations:^{
-                self.imageView.frame = self.originImgVFrame;
-                self.contentV.frame = self.originContentVFrame;
+                self.imageView.frame = self.originFrame;
 //                self.view.backgroundColor = [UIColor blackColor];
             }];
             [self addImageView];
@@ -268,8 +249,7 @@
         case UIGestureRecognizerStateFailed://5
         {
             [UIView animateWithDuration:0.3 animations:^{
-                self.imageView.frame = self.originImgVFrame;
-                self.contentV.frame = self.originContentVFrame;
+                self.imageView.frame = self.originFrame;
 //                self.view.backgroundColor = [UIColor blackColor];
             }];
             [self addImageView];
@@ -312,7 +292,7 @@
                 orignContentF.origin.y = 0;
                 orignContentF.size.height = hei;
                 
-//                NSLog(@"hei>>%f>>frame:%@",hei,NSStringFromCGRect(orignContentF));
+                NSLog(@"hei>>%f>>frame:%@",hei,NSStringFromCGRect(orignContentF));
 
                 contentV.frame = orignContentF;
                 
@@ -324,7 +304,7 @@
                 orignContentF.origin.y = (scroll.frame.size.height-hei)/2;
                 orignContentF.size.height = SCREEN_HEIGHT -(scroll.center.y-hei/2);
                 
-//                NSLog(@"hei>>%f>>frame:%@",hei,NSStringFromCGRect(orignContentF));
+                NSLog(@"hei>>%f>>frame:%@",hei,NSStringFromCGRect(orignContentF));
 
                 contentV.frame = orignContentF;
                 
@@ -456,7 +436,7 @@
                     orignContentF.origin.y = 0;
                     orignContentF.size.height = hei;
                     
-//                    NSLog(@"hei>>%f>>frame:%@",hei,NSStringFromCGRect(orignContentF));
+                    NSLog(@"hei>>%f>>frame:%@",hei,NSStringFromCGRect(orignContentF));
 
                     contentV.frame = orignContentF;
                     
@@ -468,7 +448,7 @@
                     orignContentF.origin.y = (scroll.frame.size.height-hei)/2;
                     orignContentF.size.height = SCREEN_HEIGHT -(scroll.center.y-hei/2);
                     
-//                    NSLog(@"hei>>%f>>frame:%@",hei,NSStringFromCGRect(orignContentF));
+                    NSLog(@"hei>>%f>>frame:%@",hei,NSStringFromCGRect(orignContentF));
 
                     contentV.frame = orignContentF;
                     
@@ -563,7 +543,6 @@
             scroll.tag = 1000+i;
             
             UIView *contentV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-            contentV.backgroundColor = [UIColor orangeColor];
             contentV.tag = 1999;
             [scroll addSubview:contentV];
             
@@ -622,11 +601,6 @@
 - (UIScrollView *)currentScroll {
     UIScrollView *scroll = [self.horizentalScrollView viewWithTag:1000+self.idx];
     return scroll;
-}
-
-- (UIView *)contentV {
-    UIView *view  = [self.currentScroll viewWithTag:1999];
-    return view;
 }
 
 - (PresentationVC *)presentationVC {
