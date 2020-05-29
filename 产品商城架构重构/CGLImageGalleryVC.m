@@ -408,7 +408,7 @@
         self.imageView.frame = of;
         [contentV addSubview:self.imageView];
 //        self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, hei);
-        [UIView animateWithDuration:0.3 animations:^{
+        [UIView animateWithDuration:0.25 animations:^{
             CGRect resultFrame = CGRectZero;
             if (hei>SCREEN_HEIGHT) {
                 resultFrame = CGRectMake(self.currentScroll.center.x-self.idx*SCREEN_WIDTH-SCREEN_WIDTH/2, 0, SCREEN_WIDTH, hei);
@@ -507,7 +507,7 @@
 //        imageView.frame = resultF;
 //        [self.originContentView addSubview:imageView];
         
-        [UIView animateWithDuration:0.3 animations:^{
+        [UIView animateWithDuration:0.25 animations:^{
 //            NSLog(@">>>>>>>animation>>>>>>>>>>");
             CGRect of = [contentV convertRect:originF fromView:self.originContentView];
             imageView.frame = of;
