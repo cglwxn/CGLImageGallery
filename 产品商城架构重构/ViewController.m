@@ -265,6 +265,8 @@ static NSString *cell1ID = @"cell1ID";
             UIImageView *imageV = [self obtainImageView:CGRectMake(i%3*((SCREEN_WIDTH-40)/3+10)+10, i/3*((SCREEN_WIDTH-40)/3+10)+10, (SCREEN_WIDTH-40)/3, (SCREEN_WIDTH-40)/3) imgName:self.imgs[i] tag:i + 2000];
             [_contentView addSubview:imageV];
         }
+        UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
+        [imgV drawRect:CGRectZero];
         
     }
     return _contentView;

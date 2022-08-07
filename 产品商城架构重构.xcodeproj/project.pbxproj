@@ -39,6 +39,7 @@
 		213C67C62424C4EC001C59E5 /* MainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C67C52424C4EC001C59E5 /* MainTableView.m */; };
 		21715EDA2470546600A723DF /* InteractiveTransitioningObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 21715ED92470546600A723DF /* InteractiveTransitioningObject.m */; };
 		2187594C24699BAC0070EDE9 /* CGLImageGalleryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187594B24699BAC0070EDE9 /* CGLImageGalleryVC.m */; };
+		21BD3E5028A073B0006FEF29 /* ImageGallery_Gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 21BD3E4F28A073B0006FEF29 /* ImageGallery_Gif.gif */; };
 		21C9C80B247D74A500E36A05 /* FangProductStoreRecommendCollectionFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C9C809247D74A500E36A05 /* FangProductStoreRecommendCollectionFlowLayout.m */; };
 		21C9C80E247D8A9F00E36A05 /* CGLImageGalleryVeriticalScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C9C80D247D8A9F00E36A05 /* CGLImageGalleryVeriticalScroll.m */; };
 		21F493FE2472F57000D93539 /* PresentationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F493FD2472F56F00D93539 /* PresentationVC.m */; };
@@ -121,6 +122,7 @@
 		21715ED92470546600A723DF /* InteractiveTransitioningObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InteractiveTransitioningObject.m; sourceTree = "<group>"; };
 		2187594A24699BAC0070EDE9 /* CGLImageGalleryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGLImageGalleryVC.h; sourceTree = "<group>"; };
 		2187594B24699BAC0070EDE9 /* CGLImageGalleryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGLImageGalleryVC.m; sourceTree = "<group>"; };
+		21BD3E4F28A073B0006FEF29 /* ImageGallery_Gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ImageGallery_Gif.gif; sourceTree = "<group>"; };
 		21C9C809247D74A500E36A05 /* FangProductStoreRecommendCollectionFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FangProductStoreRecommendCollectionFlowLayout.m; sourceTree = "<group>"; };
 		21C9C80A247D74A500E36A05 /* FangProductStoreRecommendCollectionFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FangProductStoreRecommendCollectionFlowLayout.h; sourceTree = "<group>"; };
 		21C9C80C247D8A9F00E36A05 /* CGLImageGalleryVeriticalScroll.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGLImageGalleryVeriticalScroll.h; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				213C67B72424733F001C59E5 /* BackImg@2x.png */,
 				213C67B62424733F001C59E5 /* BackImg@3x.png */,
 				213C67B82424733F001C59E5 /* IMG_0110.JPG */,
+				21BD3E4F28A073B0006FEF29 /* ImageGallery_Gif.gif */,
 				213C679124246DC9001C59E5 /* PrefixHeader.pch */,
 				213C679224246DEB001C59E5 /* FangCommonDefines.h */,
 				213C676824246D65001C59E5 /* Assets.xcassets */,
@@ -387,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				213C676C24246D65001C59E5 /* LaunchScreen.storyboard in Resources */,
+				21BD3E5028A073B0006FEF29 /* ImageGallery_Gif.gif in Resources */,
 				21225E8C247517D300C8EB03 /* 崂山.png in Resources */,
 				213C676924246D65001C59E5 /* Assets.xcassets in Resources */,
 				213C67B92424733F001C59E5 /* 远方.JPG in Resources */,
